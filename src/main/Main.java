@@ -6,12 +6,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        JFrame window = new JFrame();
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(1600,900);
+        String osName = System.getProperty("os.name").toLowerCase();
 
-        window.setLocationRelativeTo(null);
-        window.setVisible(true);
+        if (osName.contains("mac")) {
+            System.setProperty("apple.awt.application.name", "월급 루팡");
+        }
+
+        SwingUtilities.invokeLater(() -> new SalaryLupin().setVisible(true));
 
     }
 }
